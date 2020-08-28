@@ -21,6 +21,7 @@
 		"@mdx-js/loader": "^1.6.16",
 		"@next/mdx": "^9.5.2",
 		"@prefresh/next": "^0.3.0",
+		"@tailwindui/react": "^0.1.0",
 		"autoprefixer": "^9.8.6",
 		"mdx-prism": "^0.3.1",
 		"next": "^9.4.0",

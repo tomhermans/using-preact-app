@@ -1,13 +1,21 @@
 import Link from "next/link";
+import Head from "next/head";
+import Layout, { siteTitle } from "../components/layout";
+import Container from "../components/container";
 
 export default function Home() {
 	return (
-		<div class="p-8 bg-blue-300">
-			<Link href="/about">
-				<a>About</a>
-			</Link>
-			<br />
-			Hello World.{" "}
-		</div>
+		<Layout>
+			<Head>
+				<title>{siteTitle}</title>
+			</Head>
+			<div class="p-8 bg-green-300">
+				<Link href="/about">
+					<a class="p-2 bg-red-500 text-white">About</a>
+				</Link>
+				<br />
+				Hello World.{" "}
+			</div>
+		</Layout>
 	);
 }
