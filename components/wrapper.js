@@ -8,7 +8,7 @@ import Footer from "../components/footer.js";
 const siteName = "Tom Hermans";
 export const siteTitle = "Tom's Blog";
 
-export default function Layout({ children }) {
+export default function Wrapper({ children }) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
@@ -18,7 +18,7 @@ export default function Layout({ children }) {
 				<meta name="og:title" content={siteTitle} />
 				<meta name="description" content="A blog written by Tom Hermans" />
 			</Head>
-			<div class="min-h-screen">
+			<div class="">
 				<main>{children}</main>
 			</div>
 		</div>

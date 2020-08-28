@@ -1,10 +1,11 @@
 import Link from "next/link";
 import Head from "next/head";
-import Layout, { siteTitle } from "../components/layout";
+import Wrapper, { siteTitle } from "../components/wrapper.js";
+import MyLayout from "../layouts/MyLayout";
 
 export default function About() {
 	return (
-		<Layout>
+		<Wrapper>
 			<Head>
 				<title>{siteTitle} - About</title>
 			</Head>
@@ -15,6 +16,8 @@ export default function About() {
 				<br />
 				About us
 			</div>
-		</Layout>
+		</Wrapper>
 	);
 }
+
+About.Layout = MyLayout;

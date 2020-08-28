@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Head from "next/head";
-import Layout, { siteTitle } from "../components/layout";
+import Wrapper, { siteTitle } from "../components/wrapper";
 import Container from "../components/container";
 
 export default function Home() {
 	return (
-		<Layout>
+		<Wrapper>
 			<Head>
 				<title>{siteTitle}</title>
 			</Head>
@@ -16,6 +16,6 @@ export default function Home() {
 				<br />
 				Hello World.{" "}
 			</div>
-		</Layout>
+		</Wrapper>
 	);
 }

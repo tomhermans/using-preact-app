@@ -1,10 +1,13 @@
 const withPrefresh = require("@prefresh/next");
 const mdxPrism = require("mdx-prism");
+const rehypePrism = require("@mapbox/rehype-prism");
+
 const withMdxEnhanced = require("next-mdx-enhanced");
 
 module.exports = withMdxEnhanced({
 	layoutPath: "layouts",
 	defaultLayout: true,
+	fileExtensions: ["mdx", "md"],
 	remarkPlugins: [
 		require("remark-autolink-headings"),
 		require("remark-slug"),
