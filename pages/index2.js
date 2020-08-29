@@ -207,7 +207,7 @@ export default function Index2() {
 					}
 				`}</style>
 			</div>
-		</Wrapper>
+		</Layout>
 	);
 }
 Index2.Layout = MyLayout;
