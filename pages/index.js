@@ -5,7 +5,6 @@ import { PageTransition } from "next-page-transitions";
 import MyLayout from "../layouts/MyLayout";
 
 import Container from "../components/container";
-
 export default function Home() {
 	return (
 		<Wrapper>
