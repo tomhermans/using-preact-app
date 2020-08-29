@@ -1,4 +1,6 @@
 import Head from "next/head";
+import Header from "../components/header.js";
+
 import Wrapper from "../components/wrapper";
 import { getPostsIDs, getPostData } from "../lib/posts";
 // import Date from "../components/date";
@@ -6,6 +8,7 @@ import { getPostsIDs, getPostData } from "../lib/posts";
 export default function Post({ postData }) {
 	return (
 		<Wrapper>
+			<Header />
 			<Head>
 				<title>{postData.title}</title>
 			</Head>

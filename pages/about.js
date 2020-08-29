@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Head from "next/head";
 import Wrapper, { siteTitle } from "../components/wrapper.js";
+import { PageTransition } from "next-page-transitions";
+
 import MyLayout from "../layouts/MyLayout";
 
 export default function About() {
