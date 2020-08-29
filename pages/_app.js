@@ -1,6 +1,6 @@
 import "../styles.css";
 
-function App({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
 	const Layout = Component.Layout ? Component.Layout : React.Fragment;
 
 	return (
@@ -9,5 +9,3 @@ function App({ Component, pageProps }) {
 		</Layout>
 	);
 }
-
-export default App;

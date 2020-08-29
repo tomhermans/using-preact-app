@@ -1,13 +1,13 @@
 import Link from "next/link";
 import Head from "next/head";
-import Wrapper, { siteTitle } from "../components/wrapper.js";
+import Layout, { siteTitle } from "../components/layout.js";
 import { PageTransition } from "next-page-transitions";
 
 import MyLayout from "../layouts/MyLayout";
 
 export default function About() {
 	return (
-		<Wrapper>
+		<Layout>
 			<Head>
 				<title>{siteTitle} - About</title>
 			</Head>
@@ -18,7 +18,7 @@ export default function About() {
 				<br />
 				About us
 			</div>
-		</Wrapper>
+		</Layout>
 	);
 }
 

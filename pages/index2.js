@@ -1,10 +1,10 @@
 import Head from "next/head";
-import Wrapper, { siteTitle } from "../components/wrapper";
+import Layout, { siteTitle } from "../components/layout.js";
 import MyLayout from "../layouts/MyLayout";
 
 export default function Index2() {
 	return (
-		<Wrapper>
+		<Layout>
 			<Head>
 				<title>{siteTitle}</title>
 			</Head>
