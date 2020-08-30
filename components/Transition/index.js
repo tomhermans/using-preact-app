@@ -2,12 +2,12 @@ import {
 	TransitionGroup,
 	Transition as ReactTransition,
 } from "react-transition-group";
-const TIMEOUT = 800;
+const TIMEOUT = 400;
 const getTransitionStyles = {
 	entering: {
 		position: `absolute`,
 		opacity: 0,
-		transform: `translateX(500px)`,
+		transform: `translateY(50px)`,
 	},
 	entered: {
 		transition: `opacity ${TIMEOUT}ms ease-in-out, transform ${TIMEOUT}ms ease-in-out`,
@@ -17,7 +17,7 @@ const getTransitionStyles = {
 	exiting: {
 		transition: `opacity ${TIMEOUT}ms ease-in-out, transform ${TIMEOUT}ms ease-in-out`,
 		opacity: 0,
-		transform: `translateX(-500px)`,
+		transform: `translateY(-50px)`,
 	},
 };
 const Transition = ({ children, location }) => {

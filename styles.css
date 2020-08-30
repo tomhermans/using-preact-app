@@ -4,7 +4,7 @@
 /* purgecss end ignore */
 
 @tailwind utilities;
-
+/* 
 .layout {
 	display: flex;
 	flex-direction: column;
@@ -19,4 +19,4 @@
 	padding: 1rem;
 	border-radius: 10px;
 	background: #ddd;
-}
+} */

@@ -4,7 +4,7 @@ import MyLayout from "../layouts/MyLayout";
 
 export default function Index2() {
 	return (
-		<Layout>
+		<>
 			<Head>
 				<title>{siteTitle}</title>
 			</Head>
@@ -207,7 +207,7 @@ export default function Index2() {
 					}
 				`}</style>
 			</div>
-		</Layout>
+		</>
 	);
 }
 Index2.Layout = MyLayout;

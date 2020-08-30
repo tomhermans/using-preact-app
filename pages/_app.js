@@ -9,7 +9,7 @@ export default function App({ Component, pageProps, router }) {
 	return (
 		<ThemeProvider theme={theme}>
 			<Layout>
-				<Component {...pageProps} />
+				<Component {...pageProps} key={router.route} />
 			</Layout>
 		</ThemeProvider>
 	);

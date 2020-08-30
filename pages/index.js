@@ -7,7 +7,7 @@ import MyLayout from "../layouts/MyLayout";
 
 export default function Home({ postsData }) {
 	return (
-		<Layout>
+		<>
 			<Head>
 				<title>{siteTitle}</title>
 			</Head>
@@ -40,7 +40,7 @@ export default function Home({ postsData }) {
 					))}
 				</ul>
 			</section>
-		</Layout>
+		</>
 	);
 }
 

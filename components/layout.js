@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import theme from "../layouts/Theme.js";
 import Style from "../layouts/Style.js";
+import Header from "./header.js";
+import Header2 from "./header2.js";
 
 import { useRouter } from "next/router";
 import Transition from "./Transition";
@@ -55,13 +57,13 @@ export default function Layout({ props, children, home }) {
 	}, []);
 
 	return (
-		<div>
+		<>
 			<Head {...props}>
 				{codeToRunOnClient && (
 					<script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />
 				)}
 				<link rel="icon" href="/favicon.ico" />
-				<meta name="description" content="A blog written by Catalin Pit" />
+				<meta name="description" content="A blog written by Tom Hermans" />
 				<meta
 					property="og:image"
 					content={`https://og-image.now.sh/${encodeURI(
@@ -72,54 +74,21 @@ export default function Layout({ props, children, home }) {
 				<meta name="og:title" content={siteTitle} />
 				<meta name="twitter:card" content="summary_large_image" />
 			</Head>
-
-			<header className={"text-center mb-4 pt-10"}>
-				<ThemeToggle />
-				{home ? (
-					<>
-						<img
-							src="/images/profile.jpg"
-							className={
-								"rounded-full h-20 w-20 inline-block align-middle shadow-2xl"
-							}
-							alt={name}
-						/>
-						<h1 className={"text-6xl"}>{name}</h1>
-						<h6 className={"tracking-wider italic"}>'Building ideas'</h6>
-					</>
-				) : (
-					<>
-						<Link href="/">
-							<a>
-								<img
-									src="/images/profile.jpg"
-									className={
-										"rounded-full h-20 w-20 inline-block align-middle shadow-2xl"
-									}
-									alt={name}
-								/>
-							</a>
-						</Link>
-						<h2>
-							<Link href="/">
-								<a className={"text-6xl"}>{name}</a>
-							</Link>
-						</h2>
-						<h6 className={"tracking-wider italic"}>'Be kind or be quiet'</h6>
-					</>
-				)}
-			</header>
+			{home ? <Header /> : <Header2 />}
 
 			<Style />
 			<Nav />
 
 			<Transition location={router.pathname}>
 				<main
-					className={"container mx-auto max-w-xl pt-200 min-h-screen text-xl"}
+					className={
+						"main container mx-auto max-w-xl pt-200 min-h-screen text-xl"
+					}
 				>
 					{children}
 				</main>
 			</Transition>
+
 			{!home && (
 				<div>
 					<Link href="/">
@@ -127,6 +96,6 @@ export default function Layout({ props, children, home }) {
 					</Link>
 				</div>
 			)}
-		</div>
+		</>
 	);
 }
