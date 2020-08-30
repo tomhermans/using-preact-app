@@ -38,11 +38,11 @@ export default {
 				lite: "#333",
 				gray: "#666",
 			},
-			light: {
-				text: "#333",
-				background: "#f00",
-				lite: "#333",
-				gray: "#666",
+			default: {
+				text: "#222",
+				background: "#eee",
+				lite: "#aaa",
+				gray: "#777",
 			},
 		},
 	},

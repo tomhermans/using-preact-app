@@ -24,7 +24,7 @@ export default function Home({ postsData }) {
 				<ul>
 					{postsData.map(({ postID, title, date, excerpt }) => (
 						<li key={postID}>
-							<div className={"bg-gray-100 p-6"}>
+							<div className={"p-6"}>
 								<Link href="/[postID]" as={`/${postID}`}>
 									<a className={"text-xl font-black"}>{title}</a>
 								</Link>

@@ -26,12 +26,17 @@ if (theme.colors.modes && theme.colors.modes.length !== 0) {
     if (mode && typeof theme.colors.modes === "object" && typeof theme.colors.modes[mode] === "object") {
       const root = document.documentElement
       console.log('modes :', theme.colors.modes);
-      Object.keys(theme.colors.modes[mode]).forEach((colorName) => {
-        console.log('mode :', mode);
-        console.log('colorName :', colorName);
-        
-        root.style.setProperty("--theme-ui-colors-"+colorName, "var(--theme-ui-colors-primary,"+theme.colors.modes[mode][colorName]+")")
-      })
+      console.log('this mode :', theme.colors.modes[mode]);
+
+      Object.entries(theme.colors.modes[mode]).map(([key, value]) => {
+        // console.log(key, value);
+        document.body.style.setProperty(
+          "--theme-ui-colors-"+key, 
+          value,
+          "var(--theme-ui-colors-primary)",
+        )
+      }
+      )
     }
   })()`;
 }
@@ -63,8 +68,9 @@ export default function Layout({ props, children, home }) {
 				<meta name="og:title" content={siteTitle} />
 				<meta name="twitter:card" content="summary_large_image" />
 			</Head>
-			{typeof theme.colors.modes === "object" && <ThemeToggle />}
+
 			<header className={"text-center mb-4 pt-10"}>
+				{typeof theme.colors.modes === "object" && <ThemeToggle />}
 				{home ? (
 					<>
 						<img
