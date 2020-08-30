@@ -25,8 +25,12 @@ if (theme.colors.modes && theme.colors.modes.length !== 0) {
     }
     if (mode && typeof theme.colors.modes === "object" && typeof theme.colors.modes[mode] === "object") {
       const root = document.documentElement
+      console.log('modes :', theme.colors.modes);
       Object.keys(theme.colors.modes[mode]).forEach((colorName) => {
-        document.body.style.setProperty("--theme-ui-colors-"+colorName, "var(--theme-ui-colors-primary,"+theme.colors.modes[mode][colorName]+")")
+        console.log('mode :', mode);
+        console.log('colorName :', colorName);
+        
+        root.style.setProperty("--theme-ui-colors-"+colorName, "var(--theme-ui-colors-primary,"+theme.colors.modes[mode][colorName]+")")
       })
     }
   })()`;
@@ -42,7 +46,7 @@ export default function Layout({ props, children, home }) {
 	}, []);
 
 	return (
-		<div className={"bg-gray-100 text-gray-900"}>
+		<div>
 			<Head {...props}>
 				{codeToRunOnClient && (
 					<script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />
@@ -59,8 +63,8 @@ export default function Layout({ props, children, home }) {
 				<meta name="og:title" content={siteTitle} />
 				<meta name="twitter:card" content="summary_large_image" />
 			</Head>
+			{typeof theme.colors.modes === "object" && <ThemeToggle />}
 			<header className={"text-center mb-4 pt-10"}>
-				<ThemeToggle />
 				{home ? (
 					<>
 						<img
