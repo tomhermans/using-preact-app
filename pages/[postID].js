@@ -6,14 +6,14 @@ import Date from "../components/date";
 export default function Post({ postData }) {
 	return (
 		<Layout>
-			<div className={"bg-gray-800 p-6"}>
+			<div className={"bg-gray-100 p-6"}>
 				<h1 className={"text-4xl font-black"}>{postData.title}</h1>
 				<small>
 					Posted on <Date dateString={postData.date} />
 				</small>
 			</div>
 			<br />
-			<div className={"bg-gray-800 p-6"}>
+			<div className={"bg-gray-100 p-6"}>
 				<div dangerouslySetInnerHTML={{ __html: postData.contentHTML }} />
 			</div>
 		</Layout>

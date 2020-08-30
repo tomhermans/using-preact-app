@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-export default function Header() {
+export default function Nav() {
 	return (
-		<header>
+		<header class="text-center p-4">
 			<Link href="/">
 				<a class="px-2">Home</a>
 			</Link>

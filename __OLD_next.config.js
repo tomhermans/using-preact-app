@@ -1,12 +1,30 @@
 const withPrefresh = require("@prefresh/next");
 const mdxPrism = require("mdx-prism");
-const withMDX = require("@next/mdx")({
-	extension: /\.mdx?$/,
-});
+const rehypePrism = require("@mapbox/rehype-prism");
 
-module.exports = withPrefresh(
-	withMDX({
-		pageExtensions: ["js", "jsx", "md", "mdx"],
+const withMdxEnhanced = require("next-mdx-enhanced");
+
+module.exports = withMdxEnhanced({
+	layoutPath: "layouts",
+	defaultLayout: true,
+	fileExtensions: ["mdx", "md"],
+	remarkPlugins: [
+		// require("remark-autolink-headings"),
+		// require("remark-slug"),
+		// require("remark-code-titles"),
+		// require("./utils/title-style"),
+	],
+	rehypePlugins: [mdxPrism],
+	usesSrc: false,
+	extendFrontMatter: {
+		process: (mdxContent, frontMatter) => ({
+			wordCount: mdxContent.split(/\s+/gu).length,
+			readingTime: readingTime(mdxContent),
+		}),
+		phase: "prebuild|loader|both",
+	},
+})(
+	withPrefresh({
 		webpack(config, { dev, isServer }) {
 			// Move Preact into the framework chunk instead of duplicating in routes:
 			const splitChunks =

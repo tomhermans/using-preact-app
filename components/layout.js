@@ -1,13 +1,52 @@
+import { useEffect } from "react";
+import theme from "../layouts/Theme.js";
+import Style from "../layouts/Style.js";
+
 import Head from "next/head";
 import Link from "next/link";
+import Nav from "../components/nav";
+
+import { Box } from "theme-ui";
+import PropTypes from "prop-types";
+import ThemeToggle from "./ThemeToggle.js";
+
+// inject inline styles on the body before the page is rendered to avoid the flash of light if we are in dark mode
+let codeToRunOnClient = false;
+if (theme.colors.modes && theme.colors.modes.length !== 0) {
+	codeToRunOnClient = `
+  (function() {
+    const theme = ${JSON.stringify(theme)}
+    let mode = localStorage.getItem("theme-ui-color-mode")
+    if (!mode) {
+      const mql = window.matchMedia('(prefers-color-scheme: dark)')
+      if (typeof mql.matches === 'boolean' && mql.matches) {
+        mode = "dark"
+      }
+    }
+    if (mode && typeof theme.colors.modes === "object" && typeof theme.colors.modes[mode] === "object") {
+      const root = document.documentElement
+      Object.keys(theme.colors.modes[mode]).forEach((colorName) => {
+        document.body.style.setProperty("--theme-ui-colors-"+colorName, "var(--theme-ui-colors-primary,"+theme.colors.modes[mode][colorName]+")")
+      })
+    }
+  })()`;
+}
 
 const name = "Tom Hermans";
 export const siteTitle = "Tom's Blog";
 
-export default function Layout({ children, home }) {
+export default function Layout({ props, children, home }) {
+	useEffect(() => {
+		// the theme styles will be applied by theme ui after hydration, so remove the inline style we injected on page load
+		document.body.removeAttribute("style");
+	}, []);
+
 	return (
-		<div className={"bg-gray-900 text-white"}>
-			<Head>
+		<div className={"bg-gray-100 text-gray-900"}>
+			<Head {...props}>
+				{codeToRunOnClient && (
+					<script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />
+				)}
 				<link rel="icon" href="/favicon.ico" />
 				<meta name="description" content="A blog written by Catalin Pit" />
 				<meta
@@ -20,7 +59,8 @@ export default function Layout({ children, home }) {
 				<meta name="og:title" content={siteTitle} />
 				<meta name="twitter:card" content="summary_large_image" />
 			</Head>
-			<header className={"text-center mb-24 pt-10"}>
+			<header className={"text-center mb-4 pt-10"}>
+				<ThemeToggle />
 				{home ? (
 					<>
 						<img
@@ -31,10 +71,7 @@ export default function Layout({ children, home }) {
 							alt={name}
 						/>
 						<h1 className={"text-6xl"}>{name}</h1>
-						<h6 className={"tracking-wider italic"}>
-							'It is your attitude, more than your aptitude, that will determine
-							your altitude'
-						</h6>
+						<h6 className={"tracking-wider italic"}>'Building ideas'</h6>
 					</>
 				) : (
 					<>
@@ -54,13 +91,14 @@ export default function Layout({ children, home }) {
 								<a className={"text-6xl"}>{name}</a>
 							</Link>
 						</h2>
-						<h6 className={"tracking-wider italic"}>
-							'It is your attitude, more than your aptitude, that will determine
-							your altitude'
-						</h6>
+						<h6 className={"tracking-wider italic"}>'Be kind or be quiet'</h6>
 					</>
 				)}
 			</header>
+
+			<Style />
+			<Nav />
+
 			<main
 				className={"container mx-auto max-w-xl pt-200 min-h-screen text-xl"}
 			>
