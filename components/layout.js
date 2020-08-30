@@ -2,6 +2,9 @@ import { useEffect } from "react";
 import theme from "../layouts/Theme.js";
 import Style from "../layouts/Style.js";
 
+import { useRouter } from "next/router";
+import Transition from "./Transition";
+
 import Head from "next/head";
 import Link from "next/link";
 import Nav from "../components/nav";
@@ -45,6 +48,7 @@ const name = "Tom Hermans";
 export const siteTitle = "Tom's Blog";
 
 export default function Layout({ props, children, home }) {
+	const router = useRouter();
 	useEffect(() => {
 		// the theme styles will be applied by theme ui after hydration, so remove the inline style we injected on page load
 		document.body.removeAttribute("style");
@@ -70,7 +74,7 @@ export default function Layout({ props, children, home }) {
 			</Head>
 
 			<header className={"text-center mb-4 pt-10"}>
-				{typeof theme.colors.modes === "object" && <ThemeToggle />}
+				<ThemeToggle />
 				{home ? (
 					<>
 						<img
@@ -109,11 +113,13 @@ export default function Layout({ props, children, home }) {
 			<Style />
 			<Nav />
 
-			<main
-				className={"container mx-auto max-w-xl pt-200 min-h-screen text-xl"}
-			>
-				{children}
-			</main>
+			<Transition location={router.pathname}>
+				<main
+					className={"container mx-auto max-w-xl pt-200 min-h-screen text-xl"}
+				>
+					{children}
+				</main>
+			</Transition>
 			{!home && (
 				<div>
 					<Link href="/">

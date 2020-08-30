@@ -46,7 +46,7 @@ export default function Home({ postsData }) {
 
 export async function getStaticProps() {
 	const postsData = getPosts();
-	console.log(postsData);
+	// console.log(postsData);
 	return {
 		props: {
 			postsData,

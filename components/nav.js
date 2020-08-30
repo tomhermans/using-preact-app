@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Nav() {
 	return (
-		<header class="text-center p-4">
+		<nav class="text-center p-4">
 			<Link href="/">
 				<a class="px-2">Home</a>
 			</Link>
@@ -18,6 +18,6 @@ export default function Nav() {
 			<Link href="/index2">
 				<a class="px-2">Index2</a>
 			</Link>
-		</header>
+		</nav>
 	);
 }
