@@ -1,6 +1,7 @@
 import Link from "next/link";
+// import { getPosts } from "../lib/posts";
 
-export default function Nav() {
+export default function Nav({}) {
 	return (
 		<nav class="text-center p-4">
 			<Link href="/">
@@ -9,11 +10,8 @@ export default function Nav() {
 			<Link href="/about">
 				<a class="px-2">About</a>
 			</Link>
-			<Link href="/post02">
-				<a class="px-2">Post 02</a>
-			</Link>
-			<Link href="/post03">
-				<a class="px-2">Post 03</a>
+			<Link href="/blog">
+				<a class="px-2">Blog</a>
 			</Link>
 			<Link href="/index2">
 				<a class="px-2">Index2</a>

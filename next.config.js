@@ -1,7 +1,7 @@
 const withPrefresh = require("@prefresh/next");
 const mdxPrism = require("mdx-prism");
 const withMDX = require("@next/mdx")({
-	extension: /\.mdx?$/,
+	extension: /\.(md|mdx)$/,
 });
 
 module.exports = withPrefresh(

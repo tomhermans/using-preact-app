@@ -5,21 +5,15 @@ import { getPosts } from "../lib/posts";
 import Date from "../components/date";
 import MyLayout from "../layouts/MyLayout";
 
-export default function Home({ postsData }) {
+export default function Blog({ postsData }) {
 	return (
 		<>
 			<Head>
 				<title>{siteTitle}</title>
 			</Head>
-			<div class="p-6 bg-green-300">
-				<Link href="/about">
-					<a class="p-2 bg-red-500 text-white">About</a>
-				</Link>
-				<br />
-				Hello World.{" "}
-			</div>
 
 			<section className={"mt-6"}>
+				<h1 className="text-4xl">Blog</h1>
 				<h2 className={"mb-1"}>Have a look at my articles...</h2>
 				<ul>
 					{postsData.map(({ postID, title, date, excerpt }) => (
@@ -53,4 +47,4 @@ export async function getStaticProps() {
 	};
 }
 
-Home.Layout = MyLayout;
+Blog.Layout = MyLayout;

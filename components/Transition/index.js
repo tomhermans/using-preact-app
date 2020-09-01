@@ -7,7 +7,7 @@ const getTransitionStyles = {
 	entering: {
 		position: `absolute`,
 		opacity: 0,
-		transform: `translateY(50px)`,
+		transform: `translateY(60px)`,
 	},
 	entered: {
 		transition: `opacity ${TIMEOUT}ms ease-in-out, transform ${TIMEOUT}ms ease-in-out`,
@@ -17,10 +17,12 @@ const getTransitionStyles = {
 	exiting: {
 		transition: `opacity ${TIMEOUT}ms ease-in-out, transform ${TIMEOUT}ms ease-in-out`,
 		opacity: 0,
-		transform: `translateY(-50px)`,
+		transform: `translateY(-40px)`,
 	},
 };
-const Transition = ({ children, location }) => {
+const Transition = ({ children, location, style }) => {
+	console.log(children, location);
+
 	return (
 		<TransitionGroup style={{ position: "relative" }}>
 			<ReactTransition

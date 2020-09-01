@@ -16,7 +16,7 @@ export default function Header() {
 					}
 					alt={name}
 				/>
-				<h1 className={"text-6xl"}>{name}</h1>
+				<h1 className={"text-2xl"}>{name}</h1>
 				<h6 className={"tracking-wider italic"}>'Building ideas'</h6>
 			</>
 		</header>

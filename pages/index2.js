@@ -61,7 +61,8 @@ export default function Index2() {
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						Powered by <img src="/zeit.svg" alt="ZEIT Logo" />
+						Powered by <img src="/images/nextjs.svg" alt="NextJS Logo" />
+						<img src="/images/netlify.svg" alt="Netlify Logo" />
 					</a>
 				</footer>
 

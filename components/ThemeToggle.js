@@ -20,12 +20,12 @@ const ThemeToggle = (props) => {
 			}}
 		>
 			<Button
-				sx={{ bg: "gray", py: 1, px: 2, fontSize: 0 }}
+				sx={{ bg: "white", py: 1, px: 2, fontSize: 0 }}
 				onClick={(e) => {
 					setColorMode(colorMode === "default" ? "dark" : "default");
 				}}
 			>
-				switch to {colorMode === "default" ? "dark" : "light"} mode
+				{colorMode === "default" ? "🌚" : "🌝"}
 			</Button>
 		</Box>
 	);
