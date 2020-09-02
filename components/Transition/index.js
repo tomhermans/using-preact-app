@@ -2,7 +2,7 @@ import {
 	TransitionGroup,
 	Transition as ReactTransition,
 } from "react-transition-group";
-const TIMEOUT = 400;
+const TIMEOUT = 200;
 const getTransitionStyles = {
 	entering: {
 		position: `absolute`,
@@ -24,7 +24,7 @@ const Transition = ({ children, location, style }) => {
 	console.log(children, location);
 
 	return (
-		<TransitionGroup style={{ position: "relative" }}>
+		<TransitionGroup class="transition-group" style={{ position: "relative" }}>
 			<ReactTransition
 				key={location}
 				timeout={{

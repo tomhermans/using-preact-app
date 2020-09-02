@@ -3,6 +3,7 @@ import theme from "../layouts/Theme.js";
 import Style from "../layouts/Style.js";
 import Header from "./header.js";
 import Header2 from "./header2.js";
+import Footer from "./footer.js";
 
 import { useRouter } from "next/router";
 import Transition from "./Transition";
@@ -82,20 +83,14 @@ export default function Layout({ props, children, home }) {
 			<Transition location={router.pathname}>
 				<main
 					className={
-						"main container mx-auto max-w-xl pt-200 min-h-screen text-xl"
+						"main container mx-auto max-w-xl pt-200 min-h-screen text-xl z-0"
 					}
 				>
 					{children}
 				</main>
 			</Transition>
 
-			{!home && (
-				<div>
-					<Link href="/">
-						<a>← Back to home</a>
-					</Link>
-				</div>
-			)}
+			<Footer />
 		</>
 	);
 }

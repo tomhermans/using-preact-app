@@ -4,19 +4,23 @@
 /* purgecss end ignore */
 
 @tailwind utilities;
-/* 
-.layout {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	max-width: 680px;
-	margin: auto;
-	padding: 1rem;
-	background: #eaeaea;
-	overflow: hidden;
+
+footer {
+	background: darkblue;
+	z-index: -1;
+	position: sticky;
+	padding: 2rem 0;
+	bottom: 0;
+	text-align: center;
+	width: 100%;
 }
-.layout .main {
-	padding: 1rem;
-	border-radius: 10px;
-	background: #ddd;
-} */
+.transition-group {
+	box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.5);
+	min-height: 100vh;
+	padding: 3rem 20vw;
+	margin: 0 auto;
+	z-index: 1;
+	margin-bottom: 40vh;
+	color: var(--theme-ui-colors-text, #f00);
+	background-color: var(--theme-ui-colors-background, #0f0);
+}
