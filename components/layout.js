@@ -17,35 +17,35 @@ import PropTypes from "prop-types";
 import ThemeToggle from "./ThemeToggle.js";
 
 // inject inline styles on the body before the page is rendered to avoid the flash of light if we are in dark mode
-let codeToRunOnClient = false;
-if (theme.colors.modes && theme.colors.modes.length !== 0) {
-	codeToRunOnClient = `
-  (function() {
-    const theme = ${JSON.stringify(theme)}
-    let mode = localStorage.getItem("theme-ui-color-mode")
-    if (!mode) {
-      const mql = window.matchMedia('(prefers-color-scheme: dark)')
-      if (typeof mql.matches === 'boolean' && mql.matches) {
-        mode = "dark"
-      }
-    }
-    if (mode && typeof theme.colors.modes === "object" && typeof theme.colors.modes[mode] === "object") {
-      const root = document.documentElement
-      console.log('modes :', theme.colors.modes);
-      console.log('this mode :', theme.colors.modes[mode]);
+// let codeToRunOnClient = false;
+// if (theme.colors.modes && theme.colors.modes.length !== 0) {
+// 	codeToRunOnClient = `
+//   (function() {
+//     const theme = ${JSON.stringify(theme)}
+//     let mode = localStorage.getItem("theme-ui-color-mode")
+//     if (!mode) {
+//       const mql = window.matchMedia('(prefers-color-scheme: dark)')
+//       if (typeof mql.matches === 'boolean' && mql.matches) {
+//         mode = "dark"
+//       }
+//     }
+//     if (mode && typeof theme.colors.modes === "object" && typeof theme.colors.modes[mode] === "object") {
+//       const root = document.documentElement
+//       console.log('modes :', theme.colors.modes);
+//       console.log('this mode :', theme.colors.modes[mode]);
 
-      Object.entries(theme.colors.modes[mode]).map(([key, value]) => {
-        // console.log(key, value);
-        document.body.style.setProperty(
-          "--theme-ui-colors-"+key, 
-          value,
-          "var(--theme-ui-colors-primary)",
-        )
-      }
-      )
-    }
-  })()`;
-}
+//       Object.entries(theme.colors.modes[mode]).map(([key, value]) => {
+//         // console.log(key, value);
+//         document.body.style.setProperty(
+//           "--theme-ui-colors-"+key,
+//           value,
+//           "var(--theme-ui-colors-primary)",
+//         )
+//       }
+//       )
+//     }
+//   })()`;
+// }
 
 const name = "Tom Hermans";
 export const siteTitle = "Tom's Blog";
@@ -60,9 +60,9 @@ export default function Layout({ props, children, home }) {
 	return (
 		<>
 			<Head {...props}>
-				{codeToRunOnClient && (
+				{/* {codeToRunOnClient && (
 					<script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />
-				)}
+				)} */}
 				<link rel="icon" href="/favicon.ico" />
 				<meta name="description" content="A blog written by Tom Hermans" />
 				<meta
