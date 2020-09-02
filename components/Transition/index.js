@@ -27,10 +27,11 @@ const Transition = ({ children, location, style }) => {
 		<TransitionGroup
 			id="tg"
 			class="transition-group"
-			style={{
-				position: "relative",
-				"background-color": "var(--theme-ui-colors-background)",
-			}}
+			style={
+				{
+					// position: "relative",
+				}
+			}
 		>
 			<ReactTransition
 				key={location}

@@ -21,9 +21,9 @@ footer {
 	margin: 0 auto;
 	z-index: 10;
 	margin-bottom: 40vh;
-	color: var(--theme-ui-colors-text);
+	color: var(--theme-ui-colors-text, #f00);
 	background-color: #ccc;
-	background-color: var(--theme-ui-colors-background);
+	background-color: var(--theme-ui-colors-background, #0f0);
 	width: 100%;
 }
 
