@@ -24,7 +24,14 @@ const Transition = ({ children, location, style }) => {
 	console.log(children, location);
 
 	return (
-		<TransitionGroup class="transition-group" style={{ position: "relative" }}>
+		<TransitionGroup
+			id="tg"
+			class="transition-group"
+			style={{
+				position: "relative",
+				"background-color": "var(--theme-ui-colors-background)",
+			}}
+		>
 			<ReactTransition
 				key={location}
 				timeout={{
